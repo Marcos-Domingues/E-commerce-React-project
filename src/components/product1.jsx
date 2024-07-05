@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Accordion from "./accordion";
 import Product1 from '../assets/cachecol.jpg'; // Update the path if necessary
 import Product2 from '../assets/cachecol4.jpg';
 import Product3 from '../assets/cachecol2.jpg';
@@ -38,18 +39,34 @@ const FullScreenHeading = () => {
         <div id="item-name" className="absolute fade-in opacity-0 translate-y-4 transition-opacity duration-500">
           <h3>CACHECOL BRABO</h3>
         </div>
+
+
         <div id="item-description" className="absolute fade-in opacity-0 translate-y-4 transition-opacity duration-500">
-          <p> 85% organic, ring-spun combed cotton; <br /> 
-            15% recycled polyester and raglan sleeves; <br />
-            350 GSM fabric - brushed, washed, light sueded</p>
+          <div className="flex flex-col items-center justify-center mb-20" >
+            <div className="p-4 bg-white-200 rounded-lg max-w-screen-lg w-full">
+              <Accordion
+                title="Specification"
+                answer="Material: 95% acrylic 5% elastane 
+                        Measurements: 145 cm x 17 cm
+                        Hand wash only
+                        Produced in the Netherlands
+                        Hand sewn tags"
+              />
+              <Accordion
+                title="Tem idade limite para fazer intercâmbio?"
+                answer="Oferecemos uma variedade de cursos e programas para todas as idades. Entre em contato para saber se o que você tem interesse se encaixa na sua faixa etária."
+              />
+            </div>
+          </div>
         </div>
+
+
         <div className="button-container absolute fade-in opacity-0 translate-y-4 transition-opacity duration-500">
           <button className="quantity-button">-</button>
           <span className="quantity">1</span>
           <button className="quantity-button">+</button>
           <span className="price">$140</span>
-          <button className="add-to-cart-button">ADICIONAR
-          </button>
+          <button className="add-to-cart-button">ADICIONAR</button>
         </div>
         <div id="item-photo" className="bg-gray-500 overflow-hidden flex justify-center items-center w-100 mt-20 h-[75vh] md:h-[100vh] rounded-md cursor-pointer relative fade-in opacity-0 translate-y-4 transition-opacity duration-500">
           <img src={Product1} alt="Product 1" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110" />

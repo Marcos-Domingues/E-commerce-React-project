@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Product1 from '../assets/cachecol1.jpg'; // Update the path if necessary
 import Product2 from '../assets/tshirt1.jpg';
 import Product3 from '../assets/tshirt2.jpg';
 import Product4 from '../assets/ecobag.jpg';
 
-const FullScreenHeading = () => {
+const Shop = () => {
   return (
     <div>
-      <div className="relative  bg-gray-100 flex flex-col md:flex-row items-center justify-between px-10 mt-4 mb-20">
+      <div className="relative bg-gray-100 flex flex-col md:flex-row items-center justify-between px-10 mt-4 mb-20">
         <div className="flex flex-col items-start md:items-start">
           <div className="fade-in">
             <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-bold leading-none mb-4 md:mb-20 cursor-pointer mt-20">
@@ -42,15 +43,15 @@ const FullScreenHeading = () => {
         </div>
       </div>
 
-      <div id="ImagesFontProduct1" className="flex justify-center items-center m-4 gap-4">
+      <Link to="/product1" className="flex justify-center items-center m-4 gap-4">
         <div className="bg-gray-500 overflow-hidden flex justify-center items-center w-full h-[75vh] md:h-[100vh] rounded-md cursor-pointer relative">
           <img src={Product1} alt="Imagem 1" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110" />
           <p className="absolute top-0 left-0 m-2 text-sm text-white">TECH CACHECOL</p>
           <p className="absolute bottom-0 right-0 m-2 text-sm text-white">R$ 50</p>
         </div>
-      </div>
+      </Link>
 
-      <div id="ImagesFont" className="flex justify-center items-center m-4 gap-4">
+      <div className="flex justify-center items-center m-4 gap-4">
         <div className="bg-gray-500 overflow-hidden flex justify-center items-center w-full h-[75vh] md:h-[100vh] rounded-md cursor-pointer relative">
           <img src={Product2} alt="Imagem 1" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110" />
           <p className="absolute top-0 left-0 m-2 text-sm text-white">RED SHIRT</p>
@@ -64,8 +65,8 @@ const FullScreenHeading = () => {
         </div>
       </div>
 
-      <div id="ImagesFontProduct2" className="flex justify-center items-center m-4 gap-4">
-        <div className="bg-gray-500 overflow-hidden flex justify-center items-center w-full h-[75vh] md:h-[100vh] rounded-md cursor-pointer relative">
+      <div  className="flex justify-center items-center  m-4 gap-4">
+        <div id="banner10" className="bg-gray-500 overflow-hidden flex justify-center items-center w-full h-[75vh] md:h-[100vh] rounded-md cursor-pointer relative">
           <img src={Product4} alt="Imagem 2" className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110" />
           <p className="absolute top-0 left-0 m-2 text-sm text-white">ECOBAG</p>
           <p className="absolute bottom-0 right-0 m-2 text-sm text-white">R$ 30</p>
@@ -76,4 +77,4 @@ const FullScreenHeading = () => {
   );
 };
 
-export default FullScreenHeading;
+export default Shop;

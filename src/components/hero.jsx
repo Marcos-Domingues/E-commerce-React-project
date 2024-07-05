@@ -91,6 +91,7 @@ function Hero() {
         id="frame"
         className={`bg-gray-500 overflow-hidden flex justify-center items-center m-4 mb-8 h-screen rounded-md cursor-pointer ${
           isExpanded ? 'expanded' : ''
+          
         }`}
         onMouseLeave={() => setIsMouseOver(false)}
       >

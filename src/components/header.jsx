@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
 import { FiX as XIcon } from 'react-icons/fi';
 import 'remixicon/fonts/remixicon.css';
 import { motion } from "framer-motion";
 
-// Componente Navbar
+
+
 function Navbar() {
   const [isBodyOverflow, setIsBodyOverflow] = useState(false); 
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -12,7 +14,6 @@ function Navbar() {
   const navLinksRef = useRef(null);
   const navIconsRef = useRef(null);
 
-  // Efeito para animação dos links e ícones da navegação
   useEffect(() => {
     const observerOptions = { threshold: 0.1 };
 
@@ -36,7 +37,6 @@ function Navbar() {
     };
   }, []);
 
-  // Manipuladores de clique para o carrinho e menu
   const handleCartClick = () => {
     if (isMenuOpen) setIsMenuOpen(false);
     setIsCartOpen(prevState => !prevState);
@@ -49,7 +49,6 @@ function Navbar() {
     setIsBodyOverflow(prevState => !prevState);
   };
 
-  // Handler to close overlays only when the close icon is clicked
   const handleOverlayClick = (e, overlayType) => {
     if (e.target.classList.contains(`${overlayType}-overlay`)) {
       return;
@@ -61,7 +60,6 @@ function Navbar() {
     }
   };
 
-  // Efeito para controlar o overflow do corpo do documento
   useEffect(() => {
     document.body.style.overflow = isBodyOverflow ? 'hidden' : 'auto';
 
@@ -70,7 +68,6 @@ function Navbar() {
     };
   }, [isBodyOverflow]);
 
-  // Componente para dividir e animar texto
   const TextSplitter = ({ text }) => (
     <>
       {text.split('').map((char, index) => (
@@ -96,13 +93,13 @@ function Navbar() {
       <header className={isMenuOpen ? 'active' : ''}>
         <div id="nav">
           <div id="nav-part1">
-            {/* SVG ou Logo */}
+            {/* SVG or Logo */}
           </div>
           <div id="nav-part2">
             <div id="links" ref={navLinksRef}>
-              <a id="about1" className={`link ${isCartOpen ? 'text-white' : 'text-black'}`} href="#">SOBRE NÓS</a>
-              <a id="shop1" className={`link ${isCartOpen ? 'text-white' : 'text-black'}`} href="#">SHOP<i className="ri-arrow-right-up-line"></i></a>
-              <a id="contact1" className={`link ${isCartOpen ? 'text-white' : 'text-black'}`} href="#">CONTATO</a>
+              <Link id="about1" className={`link ${isCartOpen ? 'text-white' : 'text-black'}`} to="/about">SOBRE NÓS</Link>
+              <Link id="shop1" className={`link ${isCartOpen ? 'text-white' : 'text-black'}`} to="/shop">SHOP<i className="ri-arrow-right-up-line"></i></Link>
+              <Link id="contact1" className={`link ${isCartOpen ? 'text-white' : 'text-black'}`} to="/contact">CONTATO</Link>
             </div>
             <div id="icons" ref={navIconsRef}>
               <div className="icon-background">
@@ -200,7 +197,7 @@ function Navbar() {
                 </div>
               </div>
               <div className="menu-right">
-                <a id="shop2" className="link" href="#"><TextSplitter text="SHOP" /><i className="ri-arrow-right-up-line"></i></a>
+                <a id="shop2" className="link" href="#"><TextSplitter  text="SHOP" /><i className="ri-arrow-right-up-line"></i></a>
                 <a id="contact2" className="link" href="#"><TextSplitter text="CONTATO" /></a>
                 <a id="about2" className="link" href="#"><TextSplitter text="SOBRE NÓS" /></a>
               </div>
